@@ -86,3 +86,16 @@ resource "huaweicloud_identitycenter_account_assignment" "demo_member" {
   target_id         = data.huaweicloud_organizations_accounts.member.accounts[0].id
   target_type       = "ACCOUNT"
 }
+
+data "huaweicloud_account" "this" {}
+
+resource "huaweicloud_organizations_trusted_service" "ram" {
+  # Enable Resource Access Management (RAM) service at Organization level.
+  # By doing this, resource shares will be accepted automatically inside
+  # the Organization.
+  # Based on quick experiments, it takes around 5 minutes to reflect on
+  # member accounts. You can check if it's enabled in a member account on
+  # Resource Access Manager > Settings page. The "Enable sharing with
+  # Organizations" option should be enabled.
+  service = "service.RAM"
+}

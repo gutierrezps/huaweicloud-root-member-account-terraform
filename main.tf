@@ -7,7 +7,8 @@ module "root" {
 }
 
 module "member" {
-  source = "./modules/member"
+  source            = "./modules/member"
+  share_account_ids = [module.root.account_id]
   providers = {
     huaweicloud = huaweicloud.member_account
   }

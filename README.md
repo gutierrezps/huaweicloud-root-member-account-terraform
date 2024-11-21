@@ -29,3 +29,13 @@ root account.
    set `hwc_access_key`, `hwc_secret_key` and `member_account_name` values.
    Access Key and Secret Key are from IAM User in the root account.
 2. Run Terraform commands (e.g. `terraform init` and `terraform apply`)
+
+## Resources demonstrated
+
+Root account:
+- IAM Identity Center user, group, permission set, permission set attachment to account
+- Organizations trusted service (RAM)
+
+Member account:
+- Virtual Private Cloud and Subnet
+- Subnet sharing to root account using Resource Access Manager (RAM)
